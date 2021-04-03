@@ -18,6 +18,9 @@ class Umbrella {
         if(frameCount>=200){
         image(this.image2,pos.x,pos.y+70,200,300)
         }
-        image(this.image,pos.x,pos.y+70,300,300);
+        else{
+            image(this.image,pos.x,pos.y+70,300,300);
+        }
+       
     }
 }

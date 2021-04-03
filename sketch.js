@@ -9,7 +9,8 @@ var engine, world;
 
 var rand;
 
-
+var maxDrops=100
+var drops=[]
 
 
 var thunderCreatedFrame=0;
@@ -37,11 +38,15 @@ function setup(){
 
     createCanvas(400,700);
     umbrella = new Umbrella(200,500);
-    rain = new Drop(200,300)
     
-
+    
+    if(frameCount%100===0){
+        for(var i=0; i<maxDrops; i++){
+            drops.push(new Drop(random(0,400),random(0,400)))
+        }
+    }
     //create drops
-  
+    
     
 }
 
@@ -86,11 +91,18 @@ function draw(){
     }
 
     umbrella.display();
-    rain.display()
+   
+    for(var i=0; i<maxDrops; i++){
+        drops[i].display()
+        drops[i].update()
+
+    }
+
     
 
-    //display rain drops
-   
+    
+
+    //display rain drop
 
     drawSprites();
 }   

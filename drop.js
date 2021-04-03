@@ -1,11 +1,11 @@
 class Drop{
     constructor(x,y){
         var options={
-            isStatic: true,
+            isStatic: false,
             friction:0.1
         }
-        this.drop=Bodies.circle(x,y,20,options)
-        this.radius=20
+        this.drop=Bodies.circle(x,y,5,options)
+        this.radius=5
         World.add(world, this.drop)
         
     }
@@ -17,10 +17,14 @@ class Drop{
     }
     display(){
         var pos = this.drop.position;
+        var angle=this.drop.angle
+        push()
+        translate(pos.x,pos.y)
+        rotate(angle)
+        fill("blue")
         ellipseMode(CENTER)
-        ellipse(pos.x,pos.y,20)
-        fill("red")
-
+        ellipse(0,0,this.radius,this.radius)
+        pop()
     }
 
     
